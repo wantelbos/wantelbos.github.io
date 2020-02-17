@@ -52,6 +52,20 @@ h3 {
     text-decoration: none;
 }
 
+.data {
+    margin: 10px;
+    text-align: center;
+}
+
+.data label {
+    margin: 10px 2px 10px 10px; 
+}
+
+.data input {
+    margin: 10px 10px 10px 2px; 
+    width: 50px;
+}
+
 .section {
     display: none;
 }

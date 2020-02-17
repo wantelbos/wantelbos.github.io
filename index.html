@@ -1,10 +1,10 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="wantelbos.css">
-<script src="wantelbos.js"></script>
+<script type="text/javascript" src="wantelbos.js"></script>
 </head>
 
-<body onload='selectSection("what")'>
+<body onload='onLoad("what")'>
 <h1>A Simple Leveraged Volatility Targeted Balanced Allocation Strategy</h1>
 <h1 class="tagline">Wantelbos - Home in the virtual woods since 1997</h1>
 <hr/>
@@ -102,6 +102,16 @@ The asset allocation weights are calculated from the 3 month VIX average as foll
 </div>
 
 <hr/>
+<form class="data">
+  <label for="vix">VIX avg:</label>
+  <input type="text" id="vix" name="vix" readonly>
+  <label for="upro">UPRO:</label>
+  <input type="text" id="upro" name="upro" readonly>
+  <label for="tmf">TMF:</label>
+  <input type="text" id="tmf" name="tmf" readonly>
+  <label for="vfitx">VFITX:</label>
+  <input type="text" id="vfitx" name="vfitx" readonly>
+</form>
 
 </body>
 </html>
