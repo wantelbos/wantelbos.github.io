@@ -1,0 +1,57 @@
+body {
+    background-color: #293133;
+    color: white;
+}
+
+a {
+    color: #ffb6c1;
+}
+
+h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h3 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+
+.chart {
+    text-align: center;
+}
+
+.tagline {
+    font-size: 0.7em;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.menubar {
+    margin: 25px;
+    text-align: center;
+}
+
+.menubar span {
+    background-color: black;
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    padding: 10px 25px 10px 25px;
+    margin: 10px;
+}
+
+.menubar a {
+    color: white;
+    text-decoration: none;
+}
+
+.section {
+    display: none;
+}

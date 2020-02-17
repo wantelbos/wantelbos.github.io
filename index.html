@@ -1,9 +1,107 @@
 <html>
-<body>
-<h1>Hello World</h1>
-<p>
-Here is a graph
+<head>
+<link rel="stylesheet" type="text/css" href="wantelbos.css">
+<script src="wantelbos.js"></script>
+</head>
+
+<body onload='selectSection("what")'>
+<h1>A Simple Leveraged Volatility Targeted Balanced Allocation Strategy</h1>
+<h1 class="tagline">Wantelbos - Home in the virtual woods since 1997</h1>
+<hr/>
+<p class="menubar">
+<span><a onclick='selectSection("what")'>What?</a></span>
+<span><a onclick='selectSection("why")'>Why?</a></span>
+<span><a onclick='selectSection("how")'>How?</a></span>
+<span><a onclick='selectSection("backtest")'>Backtest</a></span>
+<span><a onclick='selectSection("recent")'>Recent Results</a></span>
 </p>
-<img src="graphs/longtime_strategy_result.png" width="70%">
+<hr/>
+
+<div class="section" id="what">
+<h2>What?</h2>
+<p>
+This website describes a long-term investing strategy in the US stock market. It explains the thinking behind the strategy, shows how the strategy behaved since 1992 and provides all the information required to implement the strategy yourself.
+Just add <span class="strike">water</span> your own money and brokerage account.
+</p>
+<p>
+This website does not provide investment advice. Whether you should follow this strategy with your hard earned own money and subsequently lose it all is yours to decide.
+</p> 
+<p>
+Also,
+<a href="http://www.marottaonmoney.com/does-past-performance-have-anything-to-do-with-future-results/">
+Past performance is no guarantee of future results.</a>
+Seriously.
+</p>
+</div>
+
+<div class="section" id="why">
+<h2>Why?</h2>
+<p>
+Investing can be done in many, many different ways. In general it is advicable to invest in
+<a href="https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101">low-cost index funds</a> and to
+<a href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">combine asset classes to optimize risk/reward</a>. A Simple Balanced Allocation Strategy that follows these principles would be to buy
+<a href="https://www.morningstar.com/funds/xnas/vbinx/quote">VBINX</a>. From 12/31/1992 till 12/31/2019 VBINX had a total return of 738% or about 8.4%/year (CAGR). This is pretty good.
+</p>
+<p>
+The greedy fools among us may not want to leave good enough alone and reach for more. Leveraged funds allows one to get both 3x the gains and 3x the losses of a regular index fund.
+Assuming that returns on a stock index fund will be positive over the long run, multiplying the gains is appealing.
+</p>
+<p>
+A major concern is the magnification of losses.
+A 33% drop in a regular index fund could translate into a 99% drop in a 3x leveraged fund. Recovery from such a drop may take a lifetime.
+The unleveraged SPY index dropped about 50% during 2007-2009 (Great Financial Crisis aka GFC) while VBINX dropped about 34%. 
+</p>
+<p>
+VBINX allocates to about 60% stocks and 40% bonds. A leveraged portfolio of 3x 60% stocks (UPRO) and 3x 40% bonds (TMF) would have had a drawdown of about 72% during the GFC.
+This is actually a little bit better than the 99% drop one might have had expected. The reason for the difference is that UPRO is rebalanced daily and that the market losses did not all happen on a single day.   
+</p>
+</div>
+
+<div class="section" id="how">
+<h2>How?</h2>
+<p>
+At creation and at each rebalancing, a portfolio is allocated to UPRO, TMP and VFITX according to the latest recommended asset allocation weights.
+</p>
+<p>
+Rebalancing should be done about once per quarter. Doing it monthly is fine as well. 
+</p>
+<p>
+The asset allocation weights are calculated from the 3 month VIX average as follow:
+<p>
+<p class="chart"><img src="graphs/allocation_strategy.png" width="70%"></p>
+</div>
+
+<div class="section" id="backtest">
+<h2>Results since 1992</p2>
+<h3>Individual Asset Returns</h3>
+<p class="chart"><img src="graphs/longtime_input_data.png" width="70%"></p>
+<h3>VIX - 3 month average</h3>
+<p class="chart"><img src="graphs/longtime_vix_data.png" width="70%"></p>
+<h3>Portfolio Allocation Weights</h3>
+<p class="chart"><img src="graphs/longtime_allocation_weights.png" width="70%"></p>
+<h3>Portfolio Results</h3>
+<p class="chart"><img src="graphs/longtime_strategy_result.png" width="70%"></p>
+<h3>Portfolio Drawdown</h3>
+<p class="chart"><img src="graphs/longtime_drawdowns.png" width="70%"></p>
+</div>
+
+<div class="section" id="recent">
+<h2>Recent Results</p2>
+<p>
+</p>
+<h3>Individual Asset Returns</h3>
+<p class="chart"><img src="graphs/recent_input_data.png" width="70%"></p>
+<h3>VIX - 3 month average</h3>
+<p class="chart"><img src="graphs/recent_vix_data.png" width="70%"></p>
+<h3>Portfolio Allocation Weights</h3>
+<p class="chart"><img src="graphs/recent_allocation_weights.png" width="70%"></p>
+<h3>Portfolio Results</h3>
+<p class="chart"><img src="graphs/recent_strategy_result.png" width="70%"></p>
+<h3>Portfolio Drawdown</h3>
+<p class="chart"><img src="graphs/recent_drawdowns.png" width="70%"></p>
+</div>
+
+<hr/>
+
 </body>
 </html>
