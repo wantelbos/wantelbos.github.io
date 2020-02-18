@@ -21,6 +21,10 @@ h3 {
     text-align: center;
 }
 
+label {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 .chart {
     text-align: center;
 }

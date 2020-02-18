@@ -10,9 +10,9 @@
 <hr/>
 <p class="menubar">
 <span><a onclick='selectSection("what")'>What?</a></span>
-<span><a onclick='selectSection("why")'>Why?</a></span>
-<span><a onclick='selectSection("how")'>How?</a></span>
+<span><a onclick='selectSection("strategy")'>Strategy</a></span>
 <span><a onclick='selectSection("backtest")'>Backtest</a></span>
+<span><a onclick='selectSection("implementation")'>Implementation</a></span>
 <span><a onclick='selectSection("recent")'>Recent Results</a></span>
 </p>
 <hr/>
@@ -28,20 +28,22 @@ This website does not provide investment advice. Whether you should follow this 
 </p> 
 <p>
 Also,
-<a href="http://www.marottaonmoney.com/does-past-performance-have-anything-to-do-with-future-results/">
+<a target="_blank" href="http://www.marottaonmoney.com/does-past-performance-have-anything-to-do-with-future-results/">
 Past performance is no guarantee of future results.</a>
 Seriously.
 </p>
 </div>
 
-<div class="section" id="why">
-<h2>Why?</h2>
+<div class="section" id="strategy">
+<h2>Strategy</h2>
+<h3>Simple & Balanced</h3>
 <p>
 Investing can be done in many, many different ways. In general it is advicable to invest in
-<a href="https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101">low-cost index funds</a> and to
-<a href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">combine asset classes to optimize risk/reward</a>. A Simple Balanced Allocation Strategy that follows these principles would be to buy
-<a href="https://www.morningstar.com/funds/xnas/vbinx/quote">VBINX</a>. From 12/31/1992 till 12/31/2019 VBINX had a total return of 738% or about 8.4%/year (CAGR). This is pretty good.
+<a target="_blank" href="https://www.amazon.com/Little-Book-Common-Sense-Investing/dp/0470102101">low-cost index funds</a> and to
+<a target="_blank" href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">combine asset classes to optimize risk/reward</a>. A Simple Balanced Allocation Strategy that follows these principles would be to buy
+<a target="_blank" href="https://www.morningstar.com/funds/xnas/vbinx/quote">VBINX</a>. From 12/31/1992 till 12/31/2019 VBINX had a total return of 738% or about 8.4%/year (CAGR). This is pretty good.
 </p>
+<h3>Leveraged</h3>
 <p>
 The greedy fools among us may not want to leave good enough alone and reach for more. Leveraged funds allows one to get both 3x the gains and 3x the losses of a regular index fund.
 Assuming that returns on a stock index fund will be positive over the long run, multiplying the gains is appealing.
@@ -53,26 +55,43 @@ The unleveraged SPY index dropped about 50% during 2007-2009 (Great Financial Cr
 </p>
 <p>
 VBINX allocates to about 60% stocks and 40% bonds. A leveraged portfolio of 3x 60% stocks (UPRO) and 3x 40% bonds (TMF) would have had a drawdown of about 72% during the GFC.
-This is actually a little bit better than the 99% drop one might have had expected. The reason for the difference is that UPRO is rebalanced daily and that the market losses did not all happen on a single day.   
-</p>
-</div>
-
-<div class="section" id="how">
-<h2>How?</h2>
-<p>
-At creation and at each rebalancing, a portfolio is allocated to UPRO, TMP and VFITX according to the latest recommended asset allocation weights.
+This is actually a little bit better than the 99% drop one might have had expected. The main reason for the difference is that UPRO is rebalanced daily and that the market losses did not all happen on a single day.   
 </p>
 <p>
-Rebalancing should be done about once per quarter. Doing it monthly is fine as well. 
+Instead of using a 60/40 stock/bond ratio, there are other ratios that historically would have resulted in a more optimal risk/reward trade-off
+(higher Sharpe and/or Sortino ratio).
+A 40/60 stock/bond ratio would have been close to optimal but at the expense of the overall return.
+Since we are using leverage to boost the overall return the main concern is to find a favorable risk/reward point and more importantly a lower drawdown risk.
+A leveraged 40/60 portfolio would have had a drawdown of about 50% during the GFC.
 </p>
 <p>
-The asset allocation weights are calculated from the 3 month VIX average as follow:
+In the <a onclick='selectSection("backtest")'>Backtest</a> section the return characteristics of leveraged 60/40, 50/50, 40/60 and 30/70 stock/bond portfolios are shown.
+</p>
+<h3>Volatility Targeted</h3>
 <p>
-<p class="chart"><img src="graphs/allocation_strategy.png" width="70%"></p>
+Although market drops can not be predicted in advance, overall market volatility <b><u>can</u></b> be predicted based on recent past market volatility.
+The VIX volatility index captures recent market volatility and provides a limited amount of additional information on future volatility.
+On average (but not always) the volatility predicted by VIX overstates the actual realized volatility for a given timeframe. 
+</p>
+<p>
+The strategy uses the concept of volatility targeting to roughly maintain a fixed amount of volatility in the portfolio.
+This means that the strategy will increase its stock allocation during periods of low volatility and decrease its stock allocation during periods
+of high volatility.
+In addition, the strategy will decrease its overall leverage during periods of very high volatility.
+The main purpose of this is not to increase the overall return but to reduce the chances of big drawdowns as those can harm longterm financial
+well being as well as our ability to sleep at night.
+</p>
+<p>
+Instead of strictly aiming for a volatility target with mathematical precision the strategy uses an allocation function that produces allocation
+weights as function of a rolling 3 month VIX average. Specifically, with VIX average below 12 the function will use a 60/40 stock/bond allocation.
+With VIX above 12 but below 20, it will gradually shift to a 40/60 stock/bond allocation.
+Between 20 and 32 it will start decreasing the 3x leverage till the portfolio reaches a 1.8x 16/84 stock/bond allocation. 
+The allocation function is visualized in the <a onclick='selectSection("implementation")'>Implementation</a> section.
+</p>
 </div>
 
 <div class="section" id="backtest">
-<h2>Results since 1992</p2>
+<h2>Backtest - Results Since 1992</p2>
 <h3>Individual Asset Returns</h3>
 <p class="chart"><img src="graphs/longtime_input_data.png" width="70%"></p>
 <h3>VIX - 3 month average</h3>
@@ -83,6 +102,21 @@ The asset allocation weights are calculated from the 3 month VIX average as foll
 <p class="chart"><img src="graphs/longtime_strategy_result.png" width="70%"></p>
 <h3>Portfolio Drawdown</h3>
 <p class="chart"><img src="graphs/longtime_drawdowns.png" width="70%"></p>
+</div>
+
+<div class="section" id="implementation">
+<h2>Implementation</h2>
+<p>
+At creation and at each rebalancing, a portfolio is allocated to UPRO, TMP and VFITX according to the latest target asset allocation weights that can be found
+at the bottom of the screen.
+</p>
+<p>
+Rebalancing should be done about once per quarter. Doing it monthly is fine as well. 
+</p>
+<p>
+The asset allocation weights are calculated from the 3 month VIX average as follow:
+<p>
+<p class="chart"><img src="graphs/allocation_strategy.png" width="70%"></p>
 </div>
 
 <div class="section" id="recent">
@@ -111,6 +145,8 @@ The asset allocation weights are calculated from the 3 month VIX average as foll
   <input type="text" id="tmf" name="tmf" readonly>
   <label for="vfitx">VFITX:</label>
   <input type="text" id="vfitx" name="vfitx" readonly>
+  <label for="as_of">As of:</label>
+  <input type="text" id="as_of" name="as_of" readonly style='width:100px;'>
 </form>
 
 </body>
