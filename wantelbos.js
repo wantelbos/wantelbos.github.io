@@ -33,8 +33,61 @@ function updateAllocation(aw_data) {
   document.getElementById("upro").value = (100*latest.upro).toFixed(0)+"%";
   document.getElementById("tmf").value = (100*latest.tmf).toFixed(0)+"%";
   document.getElementById("vfitx").value = (100*latest.vfitx).toFixed(0)+"%";
+  document.getElementById("upro_aa").value = (100*latest.upro).toFixed(0)+"%";
+  document.getElementById("tmf_aa").value = (100*latest.tmf).toFixed(0)+"%";
+  document.getElementById("vfitx_aa").value = (100*latest.vfitx).toFixed(0)+"%";
+  document.getElementById("upro_current").value = "10000";
+  document.getElementById("tmf_current").value = "0";
+  document.getElementById("vfitx_current").value = "0";
+  document.getElementById("cash_current").value = "0";
   var date = new Date(latest.Date);
   document.getElementById("as_of").value = Months[date.getUTCMonth()]+" "+date.getUTCDate()+", "+date.getUTCFullYear();
+  rebalance();
+}
+
+function toCurrency(value) {
+  return "$"+value.toLocaleString('en-US', {minimumFractionDigits: 0});
+}
+
+function readField(field, update) {
+  var data = parseInt(document.getElementById(field).value.replace('$','').replace(',',''));
+  if (update) document.getElementById(field).value = toCurrency(data);
+  return data;
+}
+
+function updateTarget(field, target) {
+  document.getElementById(field).value = toCurrency(target);
+}
+
+function updateChange(field, change) {
+  var action = "";
+  if (change > 0) action = "Buy "+toCurrency(change);
+  if (change < 0) action = "Sell "+toCurrency(-change);
+  document.getElementById(field).value = action;
+}
+
+function rebalance() {
+  var upro_current = readField("upro_current", true);
+  var tmf_current = readField("tmf_current", true);
+  var vfitx_current = readField("vfitx_current", true);
+  var cash_current = readField("cash_current", true);
+  var total = upro_current + tmf_current + vfitx_current + cash_current;
+  document.getElementById("upro_change").value = "Total="+total;
+  var upro_aa = readField("upro_aa");
+  var tmf_aa = readField("tmf_aa");
+  var vfitx_aa = readField("vfitx_aa");
+  var upro_target = parseInt((total*upro_aa / 100).toFixed(0));
+  var tmf_target = parseInt((total*tmf_aa / 100).toFixed(0));
+  var vfitx_target = parseInt((total*vfitx_aa / 100).toFixed(0));
+  updateTarget("upro_target", upro_target);
+  updateTarget("tmf_target", tmf_target);
+  updateTarget("vfitx_target", vfitx_target);
+  var upro_change = upro_target - upro_current;
+  var tmf_change = tmf_target - tmf_current;
+  var vfitx_change = vfitx_target - vfitx_current;
+  updateChange("upro_change", upro_change);
+  updateChange("tmf_change", tmf_change);
+  updateChange("vfitx_change", vfitx_change);
 }
 
 function onLoad(section) {

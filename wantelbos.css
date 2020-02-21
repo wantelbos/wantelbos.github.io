@@ -29,6 +29,10 @@ label {
     text-align: center;
 }
 
+.currency {
+    text-align: right;
+}
+
 .tagline {
     font-size: 0.7em;
 }
@@ -68,6 +72,24 @@ label {
 .data input {
     margin: 10px 10px 10px 2px; 
     width: 50px;
+}
+
+#calculator {
+    display: grid;
+    grid-template-columns: 80px 120px 80px 120px 250px;
+    margin: 0 0 0 100px;
+    grid-gap: 10px;
+}
+
+input  {
+  outline: none;
+  padding: 3px 8px;
+  box-sizing: border-box;
+  border: none;
+}
+
+input[readonly] {
+  background-color: #999;
 }
 
 .section {

@@ -14,6 +14,7 @@
 <span><a onclick='selectSection("backtest")'>Backtest</a></span>
 <span><a onclick='selectSection("implementation")'>Implementation</a></span>
 <span><a onclick='selectSection("recent")'>Recent Results</a></span>
+<span><a onclick='selectSection("rebalance")'>Rebalance</a></span>
 </p>
 <hr/>
 
@@ -69,8 +70,8 @@ In the <a onclick='selectSection("backtest")'>Backtest</a> section the return ch
 </p>
 <h3>Volatility Targeted</h3>
 <p>
-Although market drops can not be predicted in advance, overall market volatility <b><u>can</u></b> be predicted based on recent past market volatility.
-The VIX volatility index captures recent market volatility and provides a limited amount of additional information on future volatility.
+Although market drops can not be predicted in advance, overall market volatility <b><u>can</u></b> be predicted to some degree based on recent past
+market volatility. The VIX volatility index captures recent market volatility and provides a limited amount of additional information on future volatility.
 On average (but not always) the volatility predicted by VIX overstates the actual realized volatility for a given timeframe. 
 </p>
 <p>
@@ -123,7 +124,7 @@ The asset allocation weights are calculated from the 3 month VIX average as foll
 </div>
 
 <div class="section" id="recent">
-<h2>Recent Results</p2>
+<h2>Recent Results</h2>
 <p>
 </p>
 <h3>Individual Asset Returns</h3>
@@ -137,6 +138,41 @@ The asset allocation weights are calculated from the 3 month VIX average as foll
 <h3>Portfolio Drawdown</h3>
 <p class="chart"><img src="graphs/recent_drawdowns.png" width="70%"></p>
 </div>
+
+<div class="section" id="rebalance">
+<h2>Rebalance Calculator</h2>
+<div id="calculator">
+  <div></div>
+  <div>Current $</div>
+  <div>Target AA</div>
+  <div>Target $</div>
+  <div>Action</div>
+  <label for="upro_current">UPRO:</label>
+  <input type="text" pattern="[0-9]*" id="upro_current" name="upro_current" onblur="rebalance()" class="currency">
+  <input type="text" id="upro_aa" name="upro_aa" readonly>
+  <input type="text" id="upro_target" name="upro_target" readonly class="currency">
+  <input type="text" id="upro_change" name="upro_change" readonly>
+  <label for="tmf_current">TMF:</label>
+  <input type="text" pattern="[0-9]*" id="tmf_current" name="tmf_current" onblur="rebalance()" class="currency">
+  <input type="text" id="tmf_aa" name="tmf_aa" readonly>
+  <input type="text" id="tmf_target" name="tmf_target" readonly class="currency">
+  <input type="text" id="tmf_change" name="tmf_change" readonly>
+  <label for="vfitx_current">VFITX/IEF:</label>
+  <input type="text" pattern="[0-9]*" id="vfitx_current" name="vfitx_current" onblur="rebalance()" class="currency">
+  <input type="text" id="vfitx_aa" name="vfitx_aa" readonly>
+  <input type="text" id="vfitx_target" name="vfitx_target" readonly class="currency">
+  <input type="text" id="vfitx_change" name="vfitx_change" readonly>
+  <label for="cash_current">Cash:</label>
+  <input type="text" pattern="[0-9]*" id="cash_current" name="cash_current" onblur="rebalance()" class="currency">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>&nbsp;</div>
+</div>
+</div>
+
+
 
 <hr/>
 <form class="data">
