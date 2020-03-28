@@ -3,6 +3,11 @@ body {
     color: white;
 }
 
+.covid {
+    background-color: #0e0e0e;
+    color: white;
+}
+
 a {
     color: #ffb6c1;
 }
@@ -94,4 +99,10 @@ input[readonly] {
 
 .section {
     display: none;
+}
+
+.avatar {
+  width: 100px;
+  margin: 0px 20px 0px 20px;
+  vertical-align: middle;
 }
