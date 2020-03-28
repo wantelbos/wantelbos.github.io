@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../wantelbos.css">
+<script type="text/javascript" src="covid19.js"></script>
+</head>
+
+<body onload='onLoad("usa")'>
+<h1>COVID-19 - Shiny Graphs for Dark Times</h1>
+<h1 class="tagline">Wantelbos - Home in the virtual woods since 1997</h1>
+<hr/>
+
+<div class="section" id="usa">
+<h2>COVID-19 In The USA </h2>
+<p>
+Cold hard data on COVID-19 in the USA presented in shiny graphs.
+Data courtesy of <a href="https://covidtracking.com">The COVID Tracking Project</a>.
+</p>
+<h3>USA Overview</h3> 
+<p>COVID-19 in the USA on a logarithmic scale. A logarithmic scale will show exponential growth as a straight line.
+The simulated curves are for reference and assume 100 Mil cases (~30% of population) and 1 Mil deaths (1% fatality rate).
+The simulated curves were calibrated with the actual number of deaths as of Mar 22, 2020.
+</p>
+<p class="chart"><img src="covid19_usa_log.png"></p>
+<p>Below is a closer look at the same data over the course of last week.</p>
+<p class="chart"><img src="covid19_usa_log_zoom.png"></p>
+<h3>Growth Rate</h3>
+<p>The growth ratio below is based off the number of deaths. This is the ratio between the total # of deaths today versus yesterday.
+Deaths are the most reliable statistic. The number of reported cases depends on how much testing is being done and are being
+undercounted with varying degree.</p>
+<p class="chart"><img src="covid19_growth_rate.png"></p>
+<h3>Testing</h3>
+Testing is essential for bringing an outbreak under control. The graph below shows the percentage of tests that come back positive.
+This is an indirect indicator whether there is sufficient testing being done. In countries that have the outbreak under control the
+number of positives is about 5%. A higher positive test rate basically means that only the most severe/obvious cases are being tested
+and that the testing will not be very effective in preventing further spread.
+<p class="chart"><img src="covid19_usa_test_percentage.png"></p>
+<h3>Results by State</h3>
+Different States within the USA are impacted in different ways. The population density and local government response will impact
+growth rates. The graph below shows the "Top Ten" US states with highest growth rates. Only states with more than 5 deaths as of
+last week are included. 
+<p class="chart"><img src="covid19_usa_top_ten.png"></p>
+<h3>West Coast</h3>
+Number of deaths for the 3 west coast states.
+<p class="chart"><img src="covid19_usa_left_coast.png"></p>
+</div>
+
+</body>
+</html>
